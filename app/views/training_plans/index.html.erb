@@ -1,0 +1,19 @@
+<h1>All Training Plans</h1>
+<hr/>
+
+<% @training_plans.each do |plan| %>
+  <div class="row">
+    <div class="col-md-2">
+      <section class="user_info center">
+
+      </section>
+    </div>
+    <div class="col-lg-8 well">
+      <h4><%= link_to plan.name, "" %></h4>
+      <p><%= plan.description %></p>
+      <p>
+        <span class="quiet"><small><%= time_ago_in_words(plan.created_at) %></small></span>
+      </p>
+    </div>
+  </div>
+<% end %>
