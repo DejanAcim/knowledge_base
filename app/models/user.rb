@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: { case_sensitive: false },
                                     format: { with: VALID_EMAIL_REGEX }
   before_save { self.email = email.downcase }
+
+  def full_name
+    "#{name} #{surname}"
+  end
 end
