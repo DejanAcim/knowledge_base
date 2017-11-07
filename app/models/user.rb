@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :training_plans
+
   validates :name, presence: true
   validates :surname, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
