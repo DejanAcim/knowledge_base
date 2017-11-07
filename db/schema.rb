@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 20171107111528) do
     t.string "name"
     t.text "description"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_training_plans_on_user_id"
   end
 
@@ -24,6 +26,8 @@ ActiveRecord::Schema.define(version: 20171107111528) do
     t.string "surname"
     t.string "email"
     t.integer "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
