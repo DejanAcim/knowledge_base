@@ -1,0 +1,18 @@
+<p>
+  <h1>Create a Training Plan</h1>
+  <hr/>
+</p>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for @training_plan do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 8 %>
+
+      <%= f.submit "Create Training Plan", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
