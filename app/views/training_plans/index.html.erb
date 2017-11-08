@@ -10,7 +10,7 @@
       </section>
     </div>
     <div class="col-lg-8 well">
-      <h4><%= link_to plan.name, "" %></h4>
+      <h4><%= link_to plan.name, training_plan_path(plan) %></h4>
       <p><%= plan.description %></p>
       <p>
         <span class="quiet"><small><%= time_ago_in_words(plan.created_at) %></small></span>

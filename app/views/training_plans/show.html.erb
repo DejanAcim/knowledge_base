@@ -1,0 +1,21 @@
+<p>
+  <h1><%= @training_plan.name %></h1>
+</p>
+<div class="row">
+  <div class="col-md-4 pull-right center">
+    <%= gravatar_for @training_plan.user, size: 200 %>
+    <p>
+      <h5>Currently used by: <%= @training_plan.user.full_name %></h5>
+    </p>
+  </div>
+  <div class="col-md-8">
+    <div class="well">
+      <p>
+        <strong>Description:</strong>
+      </p>
+      <%= @training_plan.description %>
+    </div>
+  </div>
+</div>
+
+<h5><%= link_to "Return to Listing", training_plans_path, class: "btn btn-warning btn-small" %></h5>
