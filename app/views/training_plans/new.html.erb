@@ -3,6 +3,19 @@
   <hr/>
 </p>
 
+<% if @training_plan.errors.any? %>
+  <div class="row">
+    <div class="alert alert-danger col-md-8 col-md-offset-2">
+      <h5>Please correct the following errors:</h5>
+      <ul>
+        <% @training_plan.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
 <div class="row">
   <div class="well col-md-8 col-md-offset-2">
     <%= form_for @training_plan do |f| %>
