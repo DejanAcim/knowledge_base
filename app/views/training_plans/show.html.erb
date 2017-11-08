@@ -9,11 +9,12 @@
     </p>
   </div>
   <div class="col-md-8">
+    <%= link_to "Edit", edit_training_plan_path(@training_plan), class: "btn btn-success pull-right" %>
     <div class="well">
       <p>
         <strong>Description:</strong>
       </p>
-      <%= @training_plan.description %>
+      <%= simple_format(@training_plan.description) %>
     </div>
   </div>
 </div>

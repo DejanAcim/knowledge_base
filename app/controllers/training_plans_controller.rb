@@ -24,6 +24,20 @@ class TrainingPlansController < ApplicationController
     end
   end
 
+  def edit
+    @training_plan = TrainingPlan.find(params[:id])
+  end
+
+  def update
+    @training_plan = TrainingPlan.find(params[:id])
+    if @training_plan.update(training_plan_params)
+      flash[:succes] = "Your Training Plan was updated succesfuly"
+      redirect_to training_plan_path(@training_plan)
+    else
+      render :edit
+    end
+  end
+
   private
 
     def training_plan_params
