@@ -1,7 +1,7 @@
 class TrainingPlansController < ApplicationController
 
   def index
-    @training_plans = TrainingPlan.all
+    @training_plans = TrainingPlan.all.sort_by{|likes| likes.thumbs_up_total}.reverse
   end
 
   def show
