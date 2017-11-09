@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :training_plans
+  has_many :likes
 
   validates :name, presence: true
   validates :surname, presence: true
