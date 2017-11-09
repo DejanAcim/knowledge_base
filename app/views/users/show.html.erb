@@ -1,0 +1,36 @@
+<%= render 'shared/page_title', title: "User: " + @user.full_name %>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 center">
+    <%= gravatar_for @user, size: 200 %>
+    <hr/>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 center">
+    <h3><em>Training Plans:</em></h3>
+    <%= will_paginate @training_plans %>
+  </div>
+</div>
+
+<% @training_plans.each do |plan| %>
+  <div class="row">
+    <div class="col-lg-6 well col-lg-offset-3">
+      <h4><%= link_to plan.name, training_plan_path(plan) %></h4>
+      <p><%= plan.description %></p>
+      <p>
+        <span class="quiet"><small> created: <%= time_ago_in_words(plan.created_at) %> ago, </small></span>
+        <span class="quiet"><small> updated: <%= time_ago_in_words(plan.updated_at) %> ago</small></span>
+      </p>
+      <div class="pull-right">
+        <%= link_to like_training_plan_path(plan, like: true), method: :post do %>
+          <i class="glyphicon glyphicon-thumbs-up"></i> <%= plan.thumbs_up_total %>
+        <% end %> &nbsp&nbsp&nbsp
+        <%= link_to like_training_plan_path(plan, like: false), method: :post do %>
+          <i class="glyphicon glyphicon-thumbs-down"></i> <%= plan.thumbs_down_total %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
