@@ -40,9 +40,14 @@ class TrainingPlansController < ApplicationController
 
   def like
     @training_plan = TrainingPlan.find(params[:id])
-    Like.create(like: params[:like], user: User.first, training_plan: @training_plan) # user hardcoded for now
-    flash[:succes] = "Your selection was succesful"
-    redirect_back fallback_location: root_path
+    like = Like.create(like: params[:like], user: User.first, training_plan: @training_plan) # user hardcoded for now
+    if like.valid?
+      flash[:succes] = "Your selection was succesful"
+      redirect_back fallback_location: root_path
+    else
+      flash[:danger] = "You can only like/dislike a Training Plan once"
+      redirect_back fallback_location: root_path
+    end
   end
 
   private
