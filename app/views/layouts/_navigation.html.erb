@@ -7,8 +7,17 @@
     <div class="nav-item">
       <%= link_to "link_2", "", class: "btn btn-warning btn-default" %>
     </div>
-    <div class="nav-item">
-      <%= link_to "New Training Plan", new_training_plan_path, class: "btn btn-warning btn-default" %>
-    </div>
+    <% if logged_in? %>
+      <div class="nav-item">
+        <%= link_to "New Training Plan", new_training_plan_path, class: "btn btn-warning btn-default" %>
+      </div>
+      <div class="nav-item">
+        <%= link_to "Log out", logout_path, class: "btn btn-danger btn-default" %>
+      </div>
+    <% else %>
+      <div class="nav-item">
+        <%= link_to "Log in", login_path, class: "btn btn-warning btn-default" %>
+      </div>
+    <% end %>
   </div>
 </header>
