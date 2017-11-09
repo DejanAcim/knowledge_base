@@ -1,7 +1,8 @@
 class TrainingPlansController < ApplicationController
 
   def index
-    @training_plans = TrainingPlan.all.sort_by{|likes| likes.thumbs_up_total}.reverse
+    @training_plans = TrainingPlan.paginate(page: params[:page], per_page: 4)
+    # all.sort_by{|likes| likes.thumbs_up_total}.reverse
   end
 
   def show
