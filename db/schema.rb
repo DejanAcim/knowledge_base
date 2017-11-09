@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20171109090101) do
 
   create_table "likes", force: :cascade do |t|
-    t.boolean "likes"
+    t.boolean "like"
     t.integer "user_id"
     t.integer "training_plan_id"
     t.datetime "created_at", null: false

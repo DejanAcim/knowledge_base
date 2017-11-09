@@ -38,6 +38,13 @@ class TrainingPlansController < ApplicationController
     end
   end
 
+  def like
+    @training_plan = TrainingPlan.find(params[:id])
+    Like.create(like: params[:like], user: User.first, training_plan: @training_plan) # user hardcoded for now
+    flash[:succes] = "Your selection was succesful"
+    redirect_back fallback_location: root_path
+  end
+
   private
 
     def training_plan_params

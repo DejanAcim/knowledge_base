@@ -14,6 +14,14 @@
         <strong>Description:</strong>
       </p>
       <%= simple_format(@training_plan.description) %>
+      <div class="pull-right">
+        <%= link_to like_training_plan_path(@training_plan, like: true), method: :post do %>
+          <i class="glyphicon glyphicon-thumbs-up"></i> <%= @training_plan.thumbs_up_total %>
+        <% end %> &nbsp&nbsp&nbsp
+        <%= link_to like_training_plan_path(@training_plan, like: false), method: :post do %>
+          <i class="glyphicon glyphicon-thumbs-down"></i> <%= @training_plan.thumbs_down_total %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
