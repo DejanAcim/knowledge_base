@@ -1,6 +1,7 @@
 class TrainingPlansController < ApplicationController
-  before_action :set_training_plan, only [:edit, :update, :show, :like]
-  before_action :require_same_user, only [:edit, :update]
+  before_action :set_training_plan, only: [:edit, :update, :show, :like]
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update]
 
   def index
     @training_plans = TrainingPlan.paginate(page: params[:page], per_page: 4)
