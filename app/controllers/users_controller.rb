@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:success] = "Your profile has been updated successfully"
-      redirect_to training_plans_path #ToDo change to show user page
+      redirect_to user_path(@user)
     else
       render 'edit'
     end

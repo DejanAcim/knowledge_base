@@ -16,7 +16,7 @@ class TrainingPlansController < ApplicationController
 
   def create
     @training_plan = TrainingPlan.new(training_plan_params)
-    @training_plan.user = User.find(1) # hardcoded for now
+    @training_plan.user = current_user
 
     if @training_plan.save
       flash[:success] = "Your Training Plan was created succesfully!"
@@ -39,7 +39,7 @@ class TrainingPlansController < ApplicationController
   end
 
   def like
-    like = Like.create(like: params[:like], user: User.first, training_plan: @training_plan) # user hardcoded for now
+    like = Like.create(like: params[:like], user: current_user, training_plan: @training_plan)
     if like.valid?
       flash[:succes] = "Your selection was succesful"
       redirect_back fallback_location: root_path
