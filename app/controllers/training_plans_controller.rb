@@ -1,12 +1,12 @@
 class TrainingPlansController < ApplicationController
+  before_action :set_training_plan, only [:edit, :update, :show, :like]
+  before_action :require_same_user, only [:edit, :update]
 
   def index
     @training_plans = TrainingPlan.paginate(page: params[:page], per_page: 4)
-    # all.sort_by{|likes| likes.thumbs_up_total}.reverse
   end
 
   def show
-    @training_plan = TrainingPlan.find(params[:id])
   end
 
   def new
@@ -26,11 +26,9 @@ class TrainingPlansController < ApplicationController
   end
 
   def edit
-    @training_plan = TrainingPlan.find(params[:id])
   end
 
   def update
-    @training_plan = TrainingPlan.find(params[:id])
     if @training_plan.update(training_plan_params)
       flash[:succes] = "Your Training Plan was updated succesfuly"
       redirect_to training_plan_path(@training_plan)
@@ -40,7 +38,6 @@ class TrainingPlansController < ApplicationController
   end
 
   def like
-    @training_plan = TrainingPlan.find(params[:id])
     like = Like.create(like: params[:like], user: User.first, training_plan: @training_plan) # user hardcoded for now
     if like.valid?
       flash[:succes] = "Your selection was succesful"
@@ -55,5 +52,16 @@ class TrainingPlansController < ApplicationController
 
     def training_plan_params
       params.require(:training_plan).permit(:name, :description)
+    end
+
+    def set_training_plan
+      @training_plan = TrainingPlan.find(params[:id])
+    end
+
+    def require_same_user
+      if current_user != @training_plan.user
+        flash[:danger] = "You can only edit your own Training Plans"
+        redirect_to training_plan_path
+      end
     end
 end
