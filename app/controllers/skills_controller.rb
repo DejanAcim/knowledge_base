@@ -1,5 +1,10 @@
 class SkillsController < ApplicationController
 
+  def show
+    @skill = Skill.find(params[:id])
+    @training_plans = @skill.training_plans.paginate(page: params[:page], per_page: 4)
+  end
+
   def new
     @skill = Skill.new
   end
