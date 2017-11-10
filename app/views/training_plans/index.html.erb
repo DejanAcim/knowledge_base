@@ -1,5 +1,14 @@
 <%= render 'shared/page_title', title: "All Training Plans" %>
 
+<ul class="nav nav-tabs">
+  <li class="active">
+    <%= link_to "Training Plans", training_plans_path %>
+  </li>
+  <li>
+    <%= link_to "Users", users_path %>
+  </li>
+</ul>
+
 <%= will_paginate %>
 
 <% @training_plans.each do |plan| %>
