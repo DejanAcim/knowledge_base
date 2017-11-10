@@ -1,6 +1,10 @@
 class TrainingPlan < ActiveRecord::Base
   belongs_to :user
   has_many :likes
+  has_many :training_plan_skills
+  has_many :skills, through: :training_plan_skills
+  has_many :training_plan_trainings
+  has_many :trainings, through: :training_plan_trainings
 
   validates :name, presence: true, length: { minimum: 5, maximum: 100 }
   validates :description, presence: true, length: { minimum: 20, maximum: 500 }
