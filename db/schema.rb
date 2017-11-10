@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110130536) do
+ActiveRecord::Schema.define(version: 20171110131932) do
 
   create_table "likes", force: :cascade do |t|
     t.boolean "like"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20171110130536) do
 
   create_table "skills", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "training_plan_skills", force: :cascade do |t|
+    t.integer "skill_id"
+    t.integer "training_plan_id"
+  end
+
+  create_table "training_plan_trainings", force: :cascade do |t|
+    t.integer "training_id"
+    t.integer "training_plan_id"
   end
 
   create_table "training_plans", force: :cascade do |t|
