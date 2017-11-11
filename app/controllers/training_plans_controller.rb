@@ -2,6 +2,7 @@ class TrainingPlansController < ApplicationController
   before_action :set_training_plan, only: [:edit, :update, :show, :like]
   before_action :require_user, except: [:show, :index]
   before_action :require_same_user_or_admin, only: [:edit, :update]
+  before_action :admin_user, only: [:destroy]
 
   def index
     @training_plans = TrainingPlan.paginate(page: params[:page], per_page: 4)
@@ -38,6 +39,12 @@ class TrainingPlansController < ApplicationController
     end
   end
 
+  def destroy
+    TrainingPlan.find(params[:id]).destroy
+    flash[:sucess] = "Recipe deleted."
+    redirect_to training_plans_path
+  end
+
   def like
     like = Like.create(like: params[:like], user: current_user, training_plan: @training_plan)
     if like.valid?
@@ -64,5 +71,9 @@ class TrainingPlansController < ApplicationController
         flash[:danger] = "You can only edit your own Training Plans"
         redirect_to training_plan_path
       end
+    end
+
+    def admin_user
+      redirect_to training_plans_path unless current_user.admin?
     end
 end

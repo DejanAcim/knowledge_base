@@ -11,6 +11,11 @@
     <% if logged_in? and (@training_plan.user == current_user || current_user.admin?) %>
       <%= link_to "Edit", edit_training_plan_path(@training_plan), class: "btn btn-success pull-right" %>
     <% end %>
+    <% if current_user.admin? %>
+      <%= link_to "[Delete]", @training_plan, method: :delete,
+                            data: { confirm: "Are you sure?" },
+                            class: "btn btn-danger" %>
+    <% end %>
     <div class="well">
       <% if @training_plan.skills.any? %>
         <p>Skills: <%= render @training_plan.skills %></p>
