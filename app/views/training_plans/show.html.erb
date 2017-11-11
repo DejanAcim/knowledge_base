@@ -12,6 +12,7 @@
       <%= link_to "Edit", edit_training_plan_path(@training_plan), class: "btn btn-success pull-right" %>
     <% end %>
     <div class="well">
+      <p>Skills: <%= render @training_plan.skills %></p>
       <p>
         <strong>Description:</strong>
       </p>
