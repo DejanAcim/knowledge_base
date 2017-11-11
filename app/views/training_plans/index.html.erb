@@ -22,7 +22,9 @@
     <div class="col-lg-8 well">
       <h4><%= link_to plan.name, training_plan_path(plan) %></h4>
       <p><%= plan.description %></p>
-      <p>Skills: <%= render plan.skills %></p>
+      <% if plan.skills.any? %>
+        <p>Skills: <%= render plan.skills %></p>
+      <% end %>
       <p>
         <span class="quiet"><small> created: <%= time_ago_in_words(plan.created_at) %> ago, </small></span>
         <span class="quiet"><small> updated: <%= time_ago_in_words(plan.updated_at) %> ago</small></span>
