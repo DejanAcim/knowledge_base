@@ -1,7 +1,7 @@
 class TrainingPlansController < ApplicationController
   before_action :set_training_plan, only: [:edit, :update, :show, :like]
   before_action :require_user, except: [:show, :index]
-  before_action :require_same_user, only: [:edit, :update]
+  before_action :require_same_user_or_admin, only: [:edit, :update]
 
   def index
     @training_plans = TrainingPlan.paginate(page: params[:page], per_page: 4)
@@ -59,8 +59,8 @@ class TrainingPlansController < ApplicationController
       @training_plan = TrainingPlan.find(params[:id])
     end
 
-    def require_same_user
-      if current_user != @training_plan.user
+    def require_same_user_or_admin
+      if current_user != @training_plan.user and !current_user.admin?
         flash[:danger] = "You can only edit your own Training Plans"
         redirect_to training_plan_path
       end
