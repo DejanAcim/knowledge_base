@@ -52,7 +52,7 @@ class TrainingPlansController < ApplicationController
   private
 
     def training_plan_params
-      params.require(:training_plan).permit(:name, :description)
+      params.require(:training_plan).permit(:name, :description, skill_ids: [], training_ids: [])
     end
 
     def set_training_plan
