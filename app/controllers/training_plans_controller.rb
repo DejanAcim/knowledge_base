@@ -41,7 +41,7 @@ class TrainingPlansController < ApplicationController
 
   def destroy
     TrainingPlan.find(params[:id]).destroy
-    flash[:sucess] = "Recipe deleted."
+    flash[:sucess] = "TRaining Plan deleted."
     redirect_to training_plans_path
   end
 
