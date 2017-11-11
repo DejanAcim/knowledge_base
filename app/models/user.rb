@@ -8,12 +8,27 @@ class User < ActiveRecord::Base
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
                     format: { with: VALID_EMAIL_REGEX }
-  before_save { self.email = email.downcase }
+  before_save :format_input
   validates :password, presence: true,
                        length: { minimum: 8, maximum: 255 },
                        on: :create
 
+  # enum role: [:trainer, :trainee, :user]
+  # after_initialize :set_default_role, if: :new_record?
+
   def full_name
     "#{name} #{surname}"
   end
+
+  private
+
+    def format_input
+      self.email = email.downcase
+      self.name = name.titleize
+      self.surname = surname.titleize
+    end
+
+    # def set_default_role
+    #   self.role ||= :user
+    # end
 end
