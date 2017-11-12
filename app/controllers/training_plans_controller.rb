@@ -20,7 +20,7 @@ class TrainingPlansController < ApplicationController
     @training_plan.user = current_user
 
     if @training_plan.save
-      flash[:success] = "Your Training Plan was created succesfully!"
+      flash[:success] = "Your Training Plan was created successfully!"
       redirect_to training_plans_path
     else
       render :new
@@ -32,7 +32,7 @@ class TrainingPlansController < ApplicationController
 
   def update
     if @training_plan.update(training_plan_params)
-      flash[:succes] = "Your Training Plan was updated succesfuly"
+      flash[:success] = "Your Training Plan was updated successfully"
       redirect_to training_plan_path(@training_plan)
     else
       render :edit
@@ -41,14 +41,14 @@ class TrainingPlansController < ApplicationController
 
   def destroy
     TrainingPlan.find(params[:id]).destroy
-    flash[:sucess] = "TRaining Plan deleted."
+    flash[:success] = "Training Plan deleted."
     redirect_to training_plans_path
   end
 
   def like
     like = Like.create(like: params[:like], user: current_user, training_plan: @training_plan)
     if like.valid?
-      flash[:succes] = "Your selection was succesful"
+      flash[:success] = "Your selection was successful"
       redirect_back fallback_location: root_path
     else
       flash[:danger] = "You can only like/dislike a Training Plan once"

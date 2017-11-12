@@ -12,7 +12,7 @@ class TrainingsController < ApplicationController
   def create
     @training = Training.new(training_params)
     if @training.save
-      flash[:success] = "Training was created succesfully"
+      flash[:success] = "Training was created successfully"
       redirect_to training_plans_path
     else
       render 'new'
