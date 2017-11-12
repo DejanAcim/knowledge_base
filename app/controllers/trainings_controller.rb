@@ -1,8 +1,12 @@
 class TrainingsController < ApplicationController
-  before_action :require_user, except: [:show]
+  before_action :require_user, except: [:show, :index]
 
   def show
     @training = Training.find(params[:id])
+  end
+
+  def index
+    @trainings = Training.all
   end
 
   def new

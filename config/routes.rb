@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   get  '/logout',   to: 'logins#destroy'
 
   resources :skills,    only: [:new, :create, :show]
-  resources :trainings, only: [:new, :create, :show]
+  resources :trainings, only: [:new, :create, :show, :index]
 end

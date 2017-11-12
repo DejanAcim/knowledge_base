@@ -1,0 +1,22 @@
+<h1>Trainings</h1>
+
+<%= link_to "Add new training", new_training_path, class: "btn btn-success" %>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @trainings.each do |training| %>
+			<tr>
+				<td><%= training.name %></td>
+				<td>
+					<%= link_to "Edit", "", class: "btn btn-default btn-xs" %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
