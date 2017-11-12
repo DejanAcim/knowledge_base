@@ -3,7 +3,10 @@ require 'test_helper'
 class TrainingPlanTest < ActiveSupport::TestCase
 
   def setup
-    @user = User.create(name: "Dejan2", surname: "Acimovic2", email: "dejanacimovic@example.com")
+    @user = User.create(name: "Dejan2",
+                        surname: "Acimovic2",
+                        email: "dejanacimovic@example.com",
+                        password: "password")
     @training_plan = @user.training_plans.new(name: "Ruby on Rails Juniorship",
                      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et do")
   end
