@@ -1,0 +1,43 @@
+<%= render 'shared/page_title', title: "Training Plans for " + @training.name + " training"%>
+
+<ul class="nav nav-tabs">
+  <li class="active">
+    <%= link_to "Training Plans", training_plans_path %>
+  </li>
+  <li>
+    <%= link_to "Users", users_path %>
+  </li>
+</ul>
+
+<%= will_paginate @training_plans %>
+
+<% @training.training_plans.each do |plan| %>
+  <div class="row">
+    <div class="col-md-2">
+      <section class="user_info center">
+        <%= link_to gravatar_for(plan.user, size: 100), user_path(plan.user) %>
+        <h5>User name: <%= plan.user.full_name %></h5>
+      </section>
+    </div>
+    <div class="col-lg-8 well">
+      <h4><%= link_to plan.name, training_plan_path(plan) %></h4>
+      <p><%= plan.description %></p>
+      <p>Skills: <%= render plan.skills %></p>
+      <p>
+        <span class="quiet"><small> created: <%= time_ago_in_words(plan.created_at) %> ago, </small></span>
+        <span class="quiet"><small> updated: <%= time_ago_in_words(plan.updated_at) %> ago</small></span>
+      </p>
+      <div class="pull-right">
+        <%= link_to like_training_plan_path(plan, like: true), method: :post do %>
+          <i class="glyphicon glyphicon-thumbs-up"></i> <%= plan.thumbs_up_total %>
+        <% end %> &nbsp&nbsp&nbsp
+        <%= link_to like_training_plan_path(plan, like: false), method: :post do %>
+          <i class="glyphicon glyphicon-thumbs-down"></i> <%= plan.thumbs_down_total %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <hr/>
+<% end %>
+
+<%= will_paginate @training_plans %>
