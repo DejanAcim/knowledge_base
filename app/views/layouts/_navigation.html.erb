@@ -3,7 +3,7 @@
     <%= link_to "myTrainingPlans", root_path, class: "btn btn-lg btn-success", id: "logo" %>
     <ul class="nav_ul_item">
       <li class="dropdown">
-        <%= link_to '#', class: "btn btn-default dropdown-toggle", "data-toggle" => "dropdown" do %>
+        <%= link_to '#', class: "btn btn-warning dropdown-toggle", "data-toggle" => "dropdown" do %>
           Skills <b class="caret"></b>
         <% end %>
         <ul class="dropdown-menu">
@@ -21,7 +21,7 @@
     </ul>
     <ul class="nav_ul_item">
       <li class="dropdown">
-        <%= link_to '#', class: "btn btn-default dropdown-toggle", "data-toggle" => "dropdown" do %>
+        <%= link_to '#', class: "btn btn-warning dropdown-toggle", "data-toggle" => "dropdown" do %>
           Trainings <b class="caret"></b>
         <% end %>
         <ul class="dropdown-menu">
@@ -43,7 +43,7 @@
       </div>
       <ul class="nav_item">
         <li class="dropdown">
-          <%= link_to '#', class: "btn btn-default dropdown-toggle", "data-toggle" => "dropdown" do %>
+          <%= link_to '#', class: "btn btn-warning dropdown-toggle", "data-toggle" => "dropdown" do %>
             <%= current_user.full_name %> <b class="caret"></b>
           <% end %>
           <ul class="dropdown-menu">
