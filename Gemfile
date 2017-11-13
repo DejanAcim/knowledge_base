@@ -24,6 +24,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'pry'
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
 
 group :development do
