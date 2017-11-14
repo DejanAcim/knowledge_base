@@ -4,5 +4,10 @@ FactoryGirl.define do
     f.surname { Faker::Name.last_name }
     f.email { Faker::Internet.unique.free_email }
     f.password { Faker::Internet.password(8) }
+    admin false
+
+    factory :admin do
+      admin true
+    end
   end
 end
