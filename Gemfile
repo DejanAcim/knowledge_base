@@ -18,6 +18,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'bcrypt'
 gem 'faker', '~> 1.8', '>= 1.8.4'
+gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -25,7 +26,6 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'pry'
   gem 'sqlite3'
-  gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
 end
 
 group :development do
