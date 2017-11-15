@@ -12,12 +12,22 @@ training_plans = ['JavaScript intermediate course',
                   'JavaScript basics',
                   'Ruby on Rails Juniorship plan']
 
+admin = User.create(email: 'admin@example.com',
+                    name: 'Admin',
+                    surname: 'Admin',
+                    password: 'password',
+                    admin: true )
+
+6.times do
+  FactoryBot.create(:user)
+end
+
 skills.each do |skill|
   Skill.find_or_create_by(name: skill)
 end
 
 trainings.each do |training|
-  Skill.find_or_create_by(name: skill)
+  Training.find_or_create_by(name: training)
 end
 
 training_plans.each do |plan|
