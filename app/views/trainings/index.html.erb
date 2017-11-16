@@ -8,7 +8,7 @@
 	<thead>
 		<tr>
 			<th>Name</th>
-			<th></th>
+			<th>Training Plans</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -16,7 +16,7 @@
 			<tr>
 				<td><%= training.name %></td>
 				<td>
-					<%= link_to "Edit", "", class: "btn btn-default btn-xs" %>
+					<%= link_to "Show", training_path(training), class: "btn btn-default btn-info btn-xs" %>
 				</td>
 			</tr>
 		<% end %>
