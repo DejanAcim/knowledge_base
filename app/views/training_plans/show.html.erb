@@ -10,8 +10,9 @@
   <div class="col-md-8">
     <div class="well">
       <% if @training_plan.skills.any? %>
-        <p>Skills: <%= render @training_plan.skills %></p>
+        <p><%= render @training_plan.skills %></p>
       <% end %>
+      <br>
       <p>
         <strong>Description:</strong>
       </p>
@@ -24,20 +25,34 @@
           <i class="glyphicon glyphicon-thumbs-down"></i> <%= @training_plan.thumbs_down_total %>
         <% end %>
       </div>
+
     </div>
   </div>
 </div>
 
-  <div class="row">
-    <div class="col-md-8">
-      <%= link_to "Return to Listing", training_plans_path, class: "btn btn-warning btn-small" %>
-      <% if logged_in? and (@training_plan.user == current_user || current_user.admin?) %>
-        <%= link_to "Edit", edit_training_plan_path(@training_plan), class: "btn btn-small btn-success" %>
-      <% end %>
-      <% if logged_in? and current_user.admin? %>
-        <%= link_to "Delete", @training_plan, method: :delete,
-                              data: { confirm: "Are you sure?" },
-                              class: "btn btn-danger pull-right" %>
+<div class="row">
+  <div class="col-md-8">
+    <div class="well">
+      <p><strong>Trainings included:</strong></p>
+      <% @training_plan.trainings.each do |training| %>
+        <div class="list-group">
+          <button class="list-group-item"><%= link_to training.name, training_path(training) %></button>
+        </div>
       <% end %>
     </div>
   </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= link_to "Return to Listing", training_plans_path, class: "btn btn-warning btn-small" %>
+    <% if logged_in? and (@training_plan.user == current_user || current_user.admin?) %>
+      <%= link_to "Edit", edit_training_plan_path(@training_plan), class: "btn btn-small btn-success" %>
+    <% end %>
+    <% if logged_in? and current_user.admin? %>
+      <%= link_to "Delete", @training_plan, method: :delete,
+                            data: { confirm: "Are you sure?" },
+                            class: "btn btn-danger pull-right" %>
+    <% end %>
+  </div>
+</div>
