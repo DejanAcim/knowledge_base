@@ -1,10 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { User.create(name: 'Dejan',
-                           surname: 'Acimovic',
-                           email: 'dejan@example.com',
-                           password: 'password') }
+  let(:user) { FactoryBot.create(:user) }
 
   describe 'validations' do
 
@@ -15,6 +12,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_length_of(:password).is_at_least(8).is_at_most(255) }
     it { is_expected.to validate_presence_of(:email) }
     it 'validate uniqueness of email' do
+      FactoryBot.create(:user)
       is_expected.to validate_uniqueness_of(:email).case_insensitive
     end
     it 'should accept valid addresses' do
