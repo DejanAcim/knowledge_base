@@ -26,6 +26,11 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'pry'
   gem 'sqlite3'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
