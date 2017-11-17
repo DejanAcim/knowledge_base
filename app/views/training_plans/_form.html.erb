@@ -14,10 +14,12 @@
         <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
       <% end %>
       <br><br>
-      <strong>Trainings:</strong>
-      <%= f.collection_check_boxes :training_ids, Training.all, :id, :name do |cbtr| %>
-        <% cbtr.label(class: "checkbox-inline input_checkbox") {cbtr.check_box(class: "checkbox") + cbtr.text} %>
-      <% end %>
+      <div class="checkbox">
+        <strong>Trainings:</strong>
+        <%= f.collection_check_boxes :training_ids, Training.all, :id, :name do |cbtr| %>
+          <% cbtr.label(class: "checkbox input_checkbox") {cbtr.check_box(class: "checkbox") + cbtr.text} %>
+        <% end %>
+      </div>
       <br><br>
       <%= f.submit(@training_plan.new_record? ? 'Create Training Plan' : 'Edit Training Plan',
                    class: "btn btn-success") %>
