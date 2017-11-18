@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/DejanAcim/knowledge_base.svg?branch=master)](https://travis-ci.org/DejanAcim/knowledge_base)
+
 # Knowledge Base
 
 This is my own project for recruitment purposes.
