@@ -45,6 +45,33 @@
 
 <div class="row">
   <div class="col-md-8">
+    <div class="well">
+      <p>
+        <%= link_to "Comments", "#" %>
+      </p>
+
+      <section id="comments-section">
+        <ol id="comments">
+          <%= render @comments %>
+        </ol>
+        <%= form_for [@training_plan, @training_plan.comments.new] do |f| %>
+          <fieldset>
+              <div class="field">
+                <%= f.text_area :body, rows: 2, cols: 60,
+                                placeholder: "Write a comment..." %>
+              </div>
+              <div class="actions">
+                <%= f.submit "Post Comment", class: "btn btn-xs btn-primary" %>
+              </div>
+          </fieldset>
+        <% end %>
+      </section>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
     <%= link_to "Return to Listing", training_plans_path, class: "btn btn-warning btn-small" %>
     <% if logged_in? and (@training_plan.user == current_user || current_user.admin?) %>
       <%= link_to "Edit", edit_training_plan_path(@training_plan), class: "btn btn-small btn-success" %>

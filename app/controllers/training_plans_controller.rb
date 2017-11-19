@@ -9,6 +9,7 @@ class TrainingPlansController < ApplicationController
   end
 
   def show
+    @comments = @training_plan.comments.all
   end
 
   def new
