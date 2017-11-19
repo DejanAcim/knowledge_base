@@ -6,7 +6,7 @@ This is my own project for recruitment purposes.
 
 Knowledge Base app allows users to prepare Training Plans. Every Training Plan is basically a course which consists of several trainings. This may be a useful tool for a team leader or a mentor to prepare a kind of roadmap for their trainees to work on a specific set of tools or technologies.
 
-Every Training Plan may have several skills attached enabling other users to have a quick view on what is actually trained with this course. It also provides a listing function by skill or specific training which may come handy for other users to find, review and reuse an already created Training Plan. All logged in users are able to review all Training Plans and vote (only once) if they like them or not. Feature other users may find useful to make a decision on reusing or rebuilding a chosen Training Plan.
+Every Training Plan may have several skills attached enabling other users to have a quick view on what is actually trained with this course. It also provides a listing function by skill or specific training which may come in handy for other users to find, review and reuse an already created Training Plan. All logged in users are able to review all Training Plans, vote (only once) if they like them or not and leave comments. Features other users will surely find useful when making a decision on reusing or rebuilding a given Training Plan.
 
 ## Technologies
 
@@ -17,7 +17,7 @@ Every Training Plan may have several skills attached enabling other users to hav
 
 * Live demo: https://justmyknowledgebase.herokuapp.com/
 
-You need a user to create new Training Plans, trainings and skills. No user is necessary to view listings. Everyone can sign up on the home page.
+You need a user to create new Training Plans, trainings, comments and skills. No user is necessary to view listings. Everyone can sign up on the home page.
 
 A signed in user is also able to edit his Training Plans.
 
@@ -35,6 +35,7 @@ password: password
 * Git branching
 * Bootstrap 3
 * Admin functionality
+* jQuery/AJAX comments
 * Like/dislike voting
 * Gravatars for users
 * Pagination
