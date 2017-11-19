@@ -25,7 +25,6 @@
           <i class="glyphicon glyphicon-thumbs-down"></i> <%= @training_plan.thumbs_down_total %>
         <% end %>
       </div>
-
     </div>
   </div>
 </div>
@@ -47,9 +46,8 @@
   <div class="col-md-8">
     <div class="well">
       <p>
-        <%= link_to "Comments", "#", id: "comments-link" %>
+        <strong><%= link_to "Show Comments:", "#", id: "comments-link" %></strong>
       </p>
-
       <section id="comments-section">
         <ol id="comments">
           <%= render @comments %>
