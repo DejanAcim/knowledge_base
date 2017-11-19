@@ -54,7 +54,7 @@
         <ol id="comments">
           <%= render @comments %>
         </ol>
-        <%= form_for [@training_plan, @training_plan.comments.new] do |f| %>
+        <%= form_for [@training_plan, @training_plan.comments.new], remote: true do |f| %>
           <fieldset>
               <div class="field">
                 <%= f.text_area :body, rows: 2, cols: 60,

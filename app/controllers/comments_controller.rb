@@ -7,7 +7,10 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.save!
 
-    redirect_to training_plan_path(@training_plan)
+    respond_to do |format|
+      format.html { redirect_to @training_plan }
+      format.js
+    end
   end
 
   private
