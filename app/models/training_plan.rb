@@ -1,6 +1,7 @@
 class TrainingPlan < ActiveRecord::Base
   belongs_to :user
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :training_plan_skills, dependent: :destroy
   has_many :skills, through: :training_plan_skills
   has_many :training_plan_trainings, dependent: :destroy
