@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     member do
       post 'like'
     end
+    resources :comments
   end
   resources :users, except: [:new, :destroy]
   get  '/register', to: 'users#new'
